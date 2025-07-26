@@ -1,0 +1,27 @@
+
+{
+  "short_name": "AuraOS",
+  "name": "AuraOS: The AI Operating System for Architecture",
+  "description": "The definitive end-to-end operating system for architecture, engineering, and construction. Powered by Google AI, AuraOS automates the entire building lifecycle, from generative design and analysis to procurement and digital twin management.",
+  "icons": [
+    {
+      "src": "/icons/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/icons/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#0d111c",
+  "background_color": "#0d111c"
+}

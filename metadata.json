@@ -1,0 +1,9 @@
+{
+  "name": "AuraOS: The AI Operating System for Architecture",
+  "description": "The definitive end-to-end operating system for architecture, engineering, and construction. Powered by Google AI, AuraOS automates the entire building lifecycle, from generative design and analysis to procurement and digital twin management.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "prompt": ""
+}

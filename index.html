@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    FRONTEND ENVIRONMENT VARIABLES:
+    For this app to function correctly with all features, create a file
+    named `.env.local` in the root directory (the same folder as this index.html file)
+    and add the following content:
+
+    # The URL of your running backend API server
+    VITE_BACKEND_API_URL=http://localhost:3001/api
+
+    # Your public Razorpay Key ID for payments
+    VITE_RAZORPAY_KEY_ID=REPLACE_WITH_YOUR_PRODUCTION_RAZORPAY_KEY_ID
+  -->
+  <!--
+    PUBLIC ASSETS (Images, Videos, etc.):
+    Static assets like the hero background video and its poster should be placed in a
+    `public` folder at the root of your project. For example:
+    - Video is expected at:         /public/videos/hero-bg.mp4
+    - Poster image is expected at:  /public/videos/hero-poster.jpg
+    - Social share image at:        /public/images/social-share.png
+    - App icons at:                 /public/icons/
+  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Favicons and PWA Manifest -->
+  <link rel="icon" href="/icons/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0d111c">
+  
+  <!-- SEO & Social Sharing Meta Tags for AuraOS -->
+  <title>AuraOS: The AI Operating System for Architecture</title>
+  <meta name="description" content="AuraOS is the enterprise-grade AI cloud for architecture, engineering, and construction, automating the entire building lifecycle from generative design to digital twin management.">
+  <meta name="keywords" content="AuraOS, Dakshin Vaarahi, Google, AI architecture, Vastu software, AI architect, civil engineering software, automated construction drawings, architectural design, digital twin, generative design, AEC AI, Imagen, Veo">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.dakshinvaarahi.com/">
+  <meta property="og:title" content="AuraOS: The AI Operating System for Architecture">
+  <meta property="og:description" content="The enterprise-grade AI cloud for architecture, engineering, and construction, automating the entire building lifecycle from generative design to digital twin management.">
+  <meta property="og:image" content="https://www.dakshinvaarahi.com/images/social-share.png">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.dakshinvaarahi.com/">
+  <meta property="twitter:title" content="AuraOS: The AI Operating System for Architecture">
+  <meta property="twitter:description" content="The enterprise-grade AI cloud for architecture, engineering, and construction, automating the entire building lifecycle from generative design to digital twin management.">
+  <meta property="twitter:image" content="https://www.dakshinvaarahi.com/images/social-share.png">
+
+  <!-- Google Fonts for Branding -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+  <!-- JSON-LD Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "AuraOS",
+    "applicationCategory": "DesignApplication",
+    "operatingSystem": "Web",
+    "description": "The enterprise-grade AI cloud for architecture, engineering, and construction, automating the entire building lifecycle from generative design to digital twin management.",
+    "softwareVersion": "1.0 Launch Edition",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "INR"
+    },
+     "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "2150"
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "Dakshin Vaarahi",
+      "url": "https://www.dakshinvaarahi.com",
+       "logo": "https://www.dakshinvaarahi.com/icons/icon-512.png"
+    }
+  }
+  </script>
+<script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.10.0",
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/client": "https://esm.sh/react-dom@^19.1.0/client",
+    "three": "https://esm.sh/three@^0.165.0",
+    "three/examples/jsm/controls/OrbitControls.js": "https://esm.sh/three@^0.165.0/examples/jsm/controls/OrbitControls.js",
+    "three/examples/jsm/controls/PointerLockControls.js": "https://esm.sh/three@^0.165.0/examples/jsm/controls/PointerLockControls.js",
+    "three/examples/jsm/exporters/GLTFExporter.js": "https://esm.sh/three@^0.165.0/examples/jsm/exporters/GLTFExporter.js",
+    "three/examples/jsm/loaders/GLTFLoader.js": "https://esm.sh/three@^0.165.0/examples/jsm/loaders/GLTFLoader.js",
+    "three/examples/jsm/loaders/DRACOLoader.js": "https://esm.sh/three@^0.165.0/examples/jsm/loaders/DRACOLoader.js",
+    "three/examples/jsm/postprocessing/EffectComposer.js": "https://esm.sh/three@^0.165.0/examples/jsm/postprocessing/EffectComposer.js",
+    "three/examples/jsm/postprocessing/RenderPass.js": "https://esm.sh/three@^0.165.0/examples/jsm/postprocessing/RenderPass.js",
+    "three/examples/jsm/postprocessing/UnrealBloomPass.js": "https://esm.sh/three@^0.165.0/examples/jsm/postprocessing/UnrealBloomPass.js",
+    "three/examples/jsm/postprocessing/SSAOPass.js": "https://esm.sh/three@^0.165.0/examples/jsm/postprocessing/SSAOPass.js",
+    "three/examples/jsm/webxr/ARButton.js": "https://esm.sh/three@^0.165.0/examples/jsm/webxr/ARButton.js",
+    "framer-motion": "https://esm.sh/framer-motion@^11.3.2",
+    "fabric": "https://esm.sh/fabric@^5.3.0",
+    "socket.io-client": "https://esm.sh/socket.io-client@^4.7.5",
+    "zustand": "https://esm.sh/zustand@^4.5.2",
+    "clsx": "https://esm.sh/clsx@^2.1.1",
+    "tailwind-merge": "https://esm.sh/tailwind-merge@^2.3.0",
+    "class-variance-authority": "https://esm.sh/class-variance-authority@^0.7.0",
+    "recharts": "https://esm.sh/recharts@^2.12.7",
+    "jspdf": "https://esm.sh/jspdf@^2.5.1",
+    "dxf-parser": "https://esm.sh/dxf-parser@^1.1.2",
+    "dxf-writer": "https://esm.sh/dxf-writer@^1.18.4",
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "three/": "https://esm.sh/three@^0.165.0/",
+    "vite": "https://esm.sh/vite@^7.0.5",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^4.7.0",
+    "tailwindcss/": "https://esm.sh/tailwindcss@^4.1.11/",
+    "@tailwindcss/typography": "https://esm.sh/@tailwindcss/typography@^0.5.16",
+    "tailwindcss-animate": "https://esm.sh/tailwindcss-animate@^1.0.7",
+    "dotenv/": "https://esm.sh/dotenv@^17.2.0/",
+    "http": "https://esm.sh/http@^0.0.1-security",
+    "socket.io": "https://esm.sh/socket.io@^4.8.1",
+    "jsonwebtoken": "https://esm.sh/jsonwebtoken@^9.0.2",
+    "express": "https://esm.sh/express@^5.1.0",
+    "cors": "https://esm.sh/cors@^2.8.5",
+    "mongoose": "https://esm.sh/mongoose@^8.16.4",
+    "helmet": "https://esm.sh/helmet@^8.1.0",
+    "express-rate-limit": "https://esm.sh/express-rate-limit@^8.0.1",
+    "bcryptjs": "https://esm.sh/bcryptjs@^3.0.2",
+    "crypto": "https://esm.sh/crypto@^1.0.1",
+    "multer": "https://esm.sh/multer@^2.0.2",
+    "razorpay": "https://esm.sh/razorpay@^2.9.6",
+    "express-validator": "https://esm.sh/express-validator@^7.2.1"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/index.tsx"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        // CORRECTED: The ServiceWorker must be registered with a path relative to the current origin.
+        // Using an absolute URL from a different origin (like 'https://ai.studio/sw.js')
+        // is a security violation and will fail. Using '/sw.js' ensures the path is
+        // correctly resolved against the application's origin, fixing the error.
+        navigator.serviceWorker.register('/sw.js').catch(error => {
+          console.error('ServiceWorker registration failed:', error);
+        });
+      });
+    }
+  </script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
